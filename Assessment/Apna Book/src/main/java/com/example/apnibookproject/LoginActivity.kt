@@ -42,12 +42,7 @@ class LoginActivity : AppCompatActivity() {
 //                Toast.makeText(this, "Login Successfully", Toast.LENGTH_SHORT).show()
                 //startActivity(Intent(this, NavDrawerActivity::class.java))
             }
-
-
-
-
         }
-
     }
 
     private fun login(email: String, password: String) {

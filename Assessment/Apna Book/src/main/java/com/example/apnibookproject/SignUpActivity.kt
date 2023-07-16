@@ -54,24 +54,20 @@ class SignUpActivity : AppCompatActivity() {
                 binding.textPassword.error = null
             }
             if (name.isNotEmpty() && email.isNotEmpty() && contact.isNotEmpty() && password.isNotEmpty()) {
-                CreateAccount(name,email,contact,password)
+                createAccount(name, email, contact, password)
+                startActivity(Intent(this,LoginActivity::class.java))
 //                Toast.makeText(this, "Register Successfully", Toast.LENGTH_SHORT).show()
-//                startActivity(Intent(this, NavDrawerActivity::class.java))
                 //onBackPressedDispatcher.onBackPressed()
             }
 
-
-
-            //startActivity(Intent(this,NavDrawerActivity::class.java))
         }
     }
 
-    private fun CreateAccount(name: String, email: String, contact: String, password: String) {
+    private fun createAccount(name: String, email: String, contact: String, password: String) {
         mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener {
             if (it.isSuccessful)
             {
-                Toast.makeText(applicationContext, "", Toast.LENGTH_SHORT).show()
-                startActivity(Intent(applicationContext,LoginActivity::class.java))
+                Toast.makeText(applicationContext, "Register Successful", Toast.LENGTH_SHORT).show()
             }
             else
             {
